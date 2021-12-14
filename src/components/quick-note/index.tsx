@@ -25,6 +25,7 @@ function QuickNote({ addQuickNote }: QuickNoteProps): React.ReactElement {
   function saveQuickNote() {
     if (quickNote === '') {
       setQuickNoteError(true);
+      return;
     }
 
     addQuickNote(quickNote);

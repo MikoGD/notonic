@@ -7,6 +7,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import QuickNote from './components/quick-note';
 import NotesGrid from './components/notes-grid';
+import { availableColors } from './components/notes-grid/note-item';
 import styles from './app.module.css';
 
 export interface Note {
@@ -24,7 +25,7 @@ function App(): React.ReactElement {
       id: uuid(),
       title,
       body: '',
-      color: 'white',
+      color: availableColors.blue,
     };
 
     setNotes((prev) => ([ ...prev, newNote ]));
@@ -39,6 +40,19 @@ function App(): React.ReactElement {
     });
   }
 
+  function changeNoteColor(color: string, index: number) {
+    setNotes(prev => {
+      const currNote = prev[index];
+      if (currNote) {
+        currNote.color = availableColors[color];
+        prev.splice(index, 1);
+        return [...prev, currNote];
+      }
+
+      return prev;
+    });
+  }
+
   return (
     <div className={styles.app}>
       <CssBaseline />
@@ -46,7 +60,7 @@ function App(): React.ReactElement {
         Note App
       </Typography>
       <QuickNote addQuickNote={addQuickNote} />
-      <NotesGrid notes={notes} deleteNote={deleteNote}/>
+      <NotesGrid notes={notes} deleteNote={deleteNote} changeNoteColor={changeNoteColor}/>
     </div>
   );
 }
