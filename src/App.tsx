@@ -42,6 +42,7 @@ function App(): React.ReactElement {
   function changeNoteColor(color: string, index: number) {
     setNotes((prev) => {
       const currNote = prev[index];
+
       if (currNote) {
         currNote.color = availableColors[color];
         prev.splice(index, 1);
@@ -54,9 +55,8 @@ function App(): React.ReactElement {
 
   function updateNote(updatedNote: Note, index: number) {
     setNotes((prev) => {
-      /* eslint-disable no-param-reassign */
       prev[index] = updatedNote;
-      /* eslint-enable no-param-reassign */
+
       return [...prev];
     });
   }
@@ -65,7 +65,7 @@ function App(): React.ReactElement {
     <div className={styles.app}>
       <CssBaseline />
       <Typography component="h1" variant="h1">
-        Note App
+        Notonic
       </Typography>
       <QuickNote addQuickNote={addQuickNote} />
       <NotesGrid
