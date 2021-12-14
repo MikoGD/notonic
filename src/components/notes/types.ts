@@ -4,4 +4,3 @@ export interface Note {
   body: string;
   color: string;
 }
-
