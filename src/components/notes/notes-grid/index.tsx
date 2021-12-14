@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Grid } from '@mui/material';
-import { Note } from '../../App';
-import NoteItem from './note-item';
+import { Note } from '../types';
+import NoteItem from '../note-item';
 
 interface NotesGridProps {
   deleteNote: (index: number) => void;

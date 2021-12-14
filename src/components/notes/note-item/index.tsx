@@ -20,7 +20,7 @@ import {
   pink,
   green,
 } from '@mui/material/colors';
-import { Note } from '../../App';
+import { Note } from '../types';
 
 interface NoteItemProps {
   deleteNote: (index: number) => void;

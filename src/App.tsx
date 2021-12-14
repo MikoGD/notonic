@@ -5,9 +5,9 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import QuickNote from './components/quick-note';
-import NotesGrid from './components/notes-grid';
-import { availableColors } from './components/notes-grid/note-item';
+import AddNote from './components/notes/add-note';
+import NotesGrid from './components/notes/notes-grid';
+import { availableColors } from './components/notes/note-item';
 import styles from './app.module.css';
 
 export interface Note {
@@ -67,7 +67,7 @@ function App(): React.ReactElement {
       <Typography component="h1" variant="h1">
         Notonic
       </Typography>
-      <QuickNote addQuickNote={addQuickNote} />
+      <AddNote addQuickNote={addQuickNote} />
       <NotesGrid
         notes={notes}
         deleteNote={deleteNote}
