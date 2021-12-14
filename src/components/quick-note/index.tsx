@@ -1,9 +1,4 @@
-import {
-  Container,
-  TextField,
-  Icon,
-  IconButton,
-} from '@mui/material';
+import { Container, TextField, Icon, IconButton } from '@mui/material';
 import React, { ChangeEvent, useState } from 'react';
 
 interface QuickNoteProps {

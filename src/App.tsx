@@ -28,12 +28,12 @@ function App(): React.ReactElement {
       color: availableColors.blue,
     };
 
-    setNotes((prev) => ([ ...prev, newNote ]));
+    setNotes((prev) => [...prev, newNote]);
   }
 
   function deleteNote(index: number) {
     console.log('deleting note');
-    setNotes(prev => {
+    setNotes((prev) => {
       prev.splice(index, 1);
 
       return [...prev];
@@ -41,7 +41,7 @@ function App(): React.ReactElement {
   }
 
   function changeNoteColor(color: string, index: number) {
-    setNotes(prev => {
+    setNotes((prev) => {
       const currNote = prev[index];
       if (currNote) {
         currNote.color = availableColors[color];
@@ -53,6 +53,15 @@ function App(): React.ReactElement {
     });
   }
 
+  function updateNote(updatedNote: Note, index: number) {
+    setNotes(prev => {
+      /* eslint-disable no-param-reassign */
+      prev[index] = updatedNote;
+      /* eslint-enable no-param-reassign */
+      return [...prev];
+    })
+  }
+
   return (
     <div className={styles.app}>
       <CssBaseline />
@@ -60,7 +69,12 @@ function App(): React.ReactElement {
         Note App
       </Typography>
       <QuickNote addQuickNote={addQuickNote} />
-      <NotesGrid notes={notes} deleteNote={deleteNote} changeNoteColor={changeNoteColor}/>
+      <NotesGrid
+        notes={notes}
+        deleteNote={deleteNote}
+        changeNoteColor={changeNoteColor}
+        updateNote={updateNote}
+      />
     </div>
   );
 }
