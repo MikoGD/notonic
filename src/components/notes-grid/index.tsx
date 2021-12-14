@@ -15,7 +15,7 @@ function NotesGrid({
   deleteNote,
   changeNoteColor,
   updateNote,
-}: NotesGridProps) {
+}: NotesGridProps): React.ReactElement {
   return (
     <Container maxWidth="xl" sx={{ mt: '2rem' }}>
       <Grid container spacing={2}>

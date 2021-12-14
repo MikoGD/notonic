@@ -49,7 +49,7 @@ function NoteItem({
   deleteNote,
   changeNoteColor,
   updateNote,
-}: NoteItemProps) {
+}: NoteItemProps): React.ReactElement {
   const [editNote, setEditNote] = useState('');
   const [editNoteError, setEditNoteError] = useState(false);
   const [isColorDialogOpen, setIsColorDialogOpen] = useState(false);

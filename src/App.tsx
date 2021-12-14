@@ -32,7 +32,6 @@ function App(): React.ReactElement {
   }
 
   function deleteNote(index: number) {
-    console.log('deleting note');
     setNotes((prev) => {
       prev.splice(index, 1);
 
