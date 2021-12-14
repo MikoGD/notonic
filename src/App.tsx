@@ -30,6 +30,15 @@ function App(): React.ReactElement {
     setNotes((prev) => ([ ...prev, newNote ]));
   }
 
+  function deleteNote(index: number) {
+    console.log('deleting note');
+    setNotes(prev => {
+      prev.splice(index, 1);
+
+      return [...prev];
+    });
+  }
+
   return (
     <div className={styles.app}>
       <CssBaseline />
@@ -37,7 +46,7 @@ function App(): React.ReactElement {
         Note App
       </Typography>
       <QuickNote addQuickNote={addQuickNote} />
-      <NotesGrid notes={notes}/>
+      <NotesGrid notes={notes} deleteNote={deleteNote}/>
     </div>
   );
 }
