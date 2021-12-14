@@ -24,6 +24,8 @@ function QuickNote({ addQuickNote }: QuickNoteProps): React.ReactElement {
     }
 
     addQuickNote(quickNote);
+
+    setQuickNote('');
   }
 
   return (

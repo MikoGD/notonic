@@ -54,12 +54,12 @@ function App(): React.ReactElement {
   }
 
   function updateNote(updatedNote: Note, index: number) {
-    setNotes(prev => {
+    setNotes((prev) => {
       /* eslint-disable no-param-reassign */
       prev[index] = updatedNote;
       /* eslint-enable no-param-reassign */
       return [...prev];
-    })
+    });
   }
 
   return (

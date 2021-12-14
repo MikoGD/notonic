@@ -43,7 +43,13 @@ export const availableColors: Colors = {
   pink: pink[400],
 };
 
-function NoteItem({ note, index, deleteNote, changeNoteColor, updateNote }: NoteItemProps) {
+function NoteItem({
+  note,
+  index,
+  deleteNote,
+  changeNoteColor,
+  updateNote,
+}: NoteItemProps) {
   const [editNote, setEditNote] = useState('');
   const [editNoteError, setEditNoteError] = useState(false);
   const [isColorDialogOpen, setIsColorDialogOpen] = useState(false);
@@ -107,7 +113,7 @@ function NoteItem({ note, index, deleteNote, changeNoteColor, updateNote }: Note
       return;
     }
 
-    const updatedNote = {...note};
+    const updatedNote = { ...note };
     updatedNote.title = editNote;
 
     updateNote(updatedNote, index);

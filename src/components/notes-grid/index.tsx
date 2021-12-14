@@ -10,13 +10,24 @@ interface NotesGridProps {
   updateNote: (updatedNote: Note, index: number) => void;
 }
 
-function NotesGrid({ notes, deleteNote, changeNoteColor, updateNote}: NotesGridProps) {
+function NotesGrid({
+  notes,
+  deleteNote,
+  changeNoteColor,
+  updateNote,
+}: NotesGridProps) {
   return (
     <Container maxWidth="xl" sx={{ mt: '2rem' }}>
       <Grid container spacing={2}>
         {notes.map((note, index) => (
           <Grid item xs={3} key={note.id}>
-            <NoteItem note={note} index={index} deleteNote={deleteNote} changeNoteColor={changeNoteColor} updateNote={updateNote}/>
+            <NoteItem
+              note={note}
+              index={index}
+              deleteNote={deleteNote}
+              changeNoteColor={changeNoteColor}
+              updateNote={updateNote}
+            />
           </Grid>
         ))}
       </Grid>
